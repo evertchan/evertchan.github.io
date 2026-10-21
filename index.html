@@ -1,39 +1,231 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evert Chan | Data Analytics Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evert Chan | Data Analytics Portfolio</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f8fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #16324f;
+      color: white;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin: 0 0 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .button {
+      display: inline-block;
+      background: white;
+      color: #16324f;
+      padding: 10px 18px;
+      margin: 5px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #16324f;
+    }
+
+    .about {
+      font-size: 17px;
+      max-width: 850px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 22px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #16324f;
+    }
+
+    .tech {
+      font-size: 14px;
+      font-weight: bold;
+      color: #5b6470;
+      margin-bottom: 12px;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      background: #16324f;
+      color: white;
+      padding: 9px 14px;
+      border-radius: 5px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: #e8eef5;
+      padding: 8px 13px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #16324f;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <h1>Evert Chan</h1>
-    <p>Aspiring Data Analyst | SQL, PostgreSQL, Excel, Power BI, Power Query</p>
+<header>
+  <h1>Evert Chan</h1>
+  <p>Data Analyst | SQL • PostgreSQL • Excel • Power BI • Power Query • BigQuery</p>
 
+  <a class="button" href="https://github.com/evertchan" target="_blank">GitHub</a>
+  <a class="button" href="https://www.linkedin.com/in/evert-c-107378191/" target="_blank">LinkedIn</a>
+</header>
+
+<div class="container">
+
+  <section>
     <h2>About Me</h2>
-    <p>
-        I am transitioning into data analytics after working in environmental reporting and compliance.
-        I have experience with data validation, reporting and stakeholder communication, and I am building
-        practical analytics skills through hands-on projects.
-    </p>
 
+    <p class="about">
+      I am transitioning into data analytics after working in environmental reporting and compliance.
+      My professional experience includes data validation, technical reporting, documentation and
+      stakeholder communication. I am developing practical analytics skills through projects using
+      SQL, PostgreSQL, Excel, Power Query, Power BI and BigQuery.
+    </p>
+  </section>
+
+  <section>
     <h2>Projects</h2>
 
-    <h3>NYC Uber & Lyft Ride Analysis</h3>
-    <p>
-        Analysed approximately 20.9 million NYC Uber and Lyft trip records using PostgreSQL and built
-        a Power BI dashboard to explore company, time-of-day and geographic trip patterns.
-    </p>
+    <div class="projects">
 
-    <h3>Australian Financial Conditions Dashboard</h3>
-    <p>
-        Combined Reserve Bank of Australia cash rate, business lending and exchange rate datasets
-        using Power Query and built an Excel dashboard covering 2020–2025.
-    </p>
+      <div class="card">
+        <h3>NYC Uber & Lyft Ride Analysis</h3>
 
+        <img src="nyc-dashboard.jpg" alt="NYC Uber and Lyft Power BI Dashboard">
+
+        <div class="tech">
+          PostgreSQL • SQL • Power BI
+        </div>
+
+        <p>
+          Analysed approximately 20.9 million NYC Uber and Lyft trip records to compare
+          company activity, hourly demand, pickup zones and common routes.
+        </p>
+
+        <a class="project-link"
+           href="https://github.com/evertchan/NYC-Uber-Lyft-Analysis"
+           target="_blank">
+          View Project
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>Australian Financial Conditions Dashboard</h3>
+
+        <img src="australian-financial-dashboard.jpg"
+             alt="Australian Financial Conditions Excel Dashboard">
+
+        <div class="tech">
+          Excel • Power Query
+        </div>
+
+        <p>
+          Combined Reserve Bank of Australia cash rate, business lending and exchange rate
+          datasets to analyse Australian financial conditions from 2020 to 2025.
+        </p>
+
+        <a class="project-link"
+           href="https://github.com/evertchan/Australian-Financial-Conditions"
+           target="_blank">
+          View Project
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
     <h2>Skills</h2>
-    <p>SQL | PostgreSQL | Excel | Power Query | Power BI | BigQuery</p>
+
+    <div class="skills">
+      <span class="skill">SQL</span>
+      <span class="skill">PostgreSQL</span>
+      <span class="skill">Excel</span>
+      <span class="skill">Power Query</span>
+      <span class="skill">Power BI</span>
+      <span class="skill">BigQuery</span>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © 2026 Evert Chan
+</footer>
 
 </body>
 </html>
