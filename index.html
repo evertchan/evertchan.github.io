@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,6 +82,7 @@
       width: 100%;
       border-radius: 6px;
       margin-bottom: 15px;
+      display: block;
     }
 
     .card h3 {
@@ -126,9 +128,82 @@
       margin-top: 50px;
     }
 
+    /* Clickable dashboard previews */
+
+    .image-trigger {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: none;
+      background: none;
+      cursor: zoom-in;
+      text-align: left;
+    }
+
+    .image-trigger img {
+      transition: transform 0.2s ease;
+    }
+
+    .image-trigger:hover img {
+      transform: scale(1.02);
+    }
+
+    .image-trigger:focus-visible {
+      outline: 3px solid #168fff;
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    /* Enlarged dashboard popup */
+
+    .image-popup {
+      border: none;
+      border-radius: 12px;
+      padding: 16px;
+      background: #ffffff;
+      max-width: 95vw;
+      max-height: 95vh;
+      box-shadow: 0 12px 50px rgba(0,0,0,0.35);
+    }
+
+    .image-popup::backdrop {
+      background: rgba(0, 0, 0, 0.88);
+    }
+
+    .image-popup img {
+      display: block;
+      max-width: 100%;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .close-popup {
+      display: block;
+      margin: 0 0 12px auto;
+      background: #16324f;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close-popup:hover {
+      background: #28537c;
+    }
+
     @media (max-width: 600px) {
       header h1 {
         font-size: 34px;
+      }
+
+      .image-popup {
+        padding: 10px;
       }
     }
   </style>
@@ -140,8 +215,19 @@
   <h1>Evert Chan</h1>
   <p>Data Analyst | SQL • PostgreSQL • Excel • Power BI • Power Query • Python</p>
 
-  <a class="button" href="https://github.com/evertchan" target="_blank">GitHub</a>
-  <a class="button" href="https://www.linkedin.com/in/evert-c-107378191/" target="_blank">LinkedIn</a>
+  <a class="button"
+     href="https://github.com/evertchan"
+     target="_blank"
+     rel="noopener noreferrer">
+    GitHub
+  </a>
+
+  <a class="button"
+     href="https://www.linkedin.com/in/evert-c-107378191/"
+     target="_blank"
+     rel="noopener noreferrer">
+    LinkedIn
+  </a>
 </header>
 
 <div class="container">
@@ -150,13 +236,14 @@
     <h2>About Me</h2>
 
     <p class="about">
-        I am transitioning into data analytics after working in environmental reporting and compliance.
-        My professional experience includes data validation, technical reporting, documentation and
-        stakeholder communication.
-    
-        I am developing my analytical skills through projects using SQL, PostgreSQL, Excel,
-        Power Query, Python and Power BI, with a focus on turning complex data into clear,
-        meaningful insights.
+      I am transitioning into data analytics after working in environmental
+      reporting and compliance. My professional experience includes data
+      validation, technical reporting, documentation and stakeholder
+      communication.
+
+      I am developing my analytical skills through projects using SQL,
+      PostgreSQL, Excel, Power Query, Python and Power BI, with a focus
+      on turning complex data into clear, meaningful insights.
     </p>
   </section>
 
@@ -165,45 +252,64 @@
 
     <div class="projects">
 
+      <!-- NYC Uber & Lyft Project -->
+
       <div class="card">
         <h3>NYC Uber & Lyft Ride Analysis</h3>
 
-        <img src="nyc-dashboard.jpg" alt="NYC Uber and Lyft Power BI Dashboard">
+        <button class="image-trigger"
+                type="button"
+                aria-label="Enlarge NYC Uber and Lyft dashboard"
+                onclick="document.getElementById('nyc-popup').showModal()">
+          <img src="nyc-dashboard.jpg"
+               alt="NYC Uber and Lyft Power BI Dashboard">
+        </button>
 
         <div class="tech">
           PostgreSQL • SQL • Power BI
         </div>
 
         <p>
-          Analysed approximately 20.9 million NYC Uber and Lyft trip records to compare
-          company activity, hourly demand, pickup zones and common routes.
+          Analysed approximately 20.9 million NYC Uber and Lyft trip
+          records to compare company activity, hourly demand,
+          pickup zones and common routes.
         </p>
 
         <a class="project-link"
            href="https://github.com/evertchan/NYC-Uber-Lyft-Analysis"
-           target="_blank">
+           target="_blank"
+           rel="noopener noreferrer">
           View Project
         </a>
       </div>
 
+      <!-- Australian Financial Conditions Project -->
+
       <div class="card">
         <h3>Australian Financial Conditions Dashboard</h3>
 
-        <img src="australian-financial-dashboard.png"
-             alt="Australian Financial Conditions Excel Dashboard">
+        <button class="image-trigger"
+                type="button"
+                aria-label="Enlarge Australian Financial Conditions dashboard"
+                onclick="document.getElementById('financial-popup').showModal()">
+          <img src="australian-financial-dashboard.png"
+               alt="Australian Financial Conditions Power BI Dashboard">
+        </button>
 
         <div class="tech">
-          Excel • Power Query
+          Power BI • Power Query • Excel
         </div>
 
         <p>
-          Combined Reserve Bank of Australia cash rate, business lending and exchange rate
-          datasets to analyse Australian financial conditions from 2020 to 2025.
+          Combined Reserve Bank of Australia cash rate, business lending
+          and exchange rate datasets to analyse Australian financial
+          conditions from 2020 to 2025.
         </p>
 
         <a class="project-link"
            href="https://github.com/evertchan/Australian-Financial-Conditions"
-           target="_blank">
+           target="_blank"
+           rel="noopener noreferrer">
           View Project
         </a>
       </div>
@@ -229,6 +335,42 @@
 <footer>
   © 2026 Evert Chan
 </footer>
+
+<!-- NYC Dashboard Popup -->
+
+<dialog id="nyc-popup"
+        class="image-popup"
+        aria-label="NYC Uber and Lyft Dashboard"
+        onclick="if (event.target === this) this.close()">
+
+  <button class="close-popup"
+          type="button"
+          onclick="document.getElementById('nyc-popup').close()">
+    Close ✕
+  </button>
+
+  <img src="nyc-dashboard.jpg"
+       alt="Full-size NYC Uber and Lyft Dashboard">
+
+</dialog>
+
+<!-- Australian Financial Dashboard Popup -->
+
+<dialog id="financial-popup"
+        class="image-popup"
+        aria-label="Australian Financial Conditions Dashboard"
+        onclick="if (event.target === this) this.close()">
+
+  <button class="close-popup"
+          type="button"
+          onclick="document.getElementById('financial-popup').close()">
+    Close ✕
+  </button>
+
+  <img src="australian-financial-dashboard.png"
+       alt="Full-size Australian Financial Conditions Dashboard">
+
+</dialog>
 
 </body>
 </html>
